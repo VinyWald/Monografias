@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>EQUIPE</h1>
+
+
+<table class="table table-white table-borderless">
+
+    <thead>
+        <tr>
+
+            <th scope="col">Nome</th>
+            <th scope="col">Formação Academica</th>
+            <th scope="col">Email</th>
+            <th scope="col">Lattes</th>
+            <th scope="col">Scholar</th>
+            <th scope="col">Research gate</th>
+            <th scope="col">Linkedin</th>
+            <th scope="col">Orcid</th>
+            <th scope="col">Github</th>
+
+        </tr>
+    </thead>
+
+    <tbody class="table-group-divider">
+        {% for e in lista %}
+        <tr>
+            <td>{{e.nome}}</td>
+            <td>{{e.get_formacao_display}}</td>
+            <td><a href="{{e.email}}"></a> <i class="ai ai-email-square ai-3x"></i></td>
+            <td><a href="{{e.lattes}}"></a><i class="ai ai-lattes-square ai-3x"></i></td>
+            <td><a href="{{e.google_scholar}}"><i class="ai ai-google-scholar-square ai-3x"></i>  </a> </td>
+            <td><a href="{{e.research_gate}}"> <i class="ai ai-researchgate-square ai-3x"></i></a> </td>
+            <td><a href="{{e.linkedin}}"> <i class="ai ai-linkedin-square ai-3x"></i></a> </td>
+            <td><a href="{{e.orcid}}"> <i class="ai ai-orcid-square ai-3x"></i> </a> </td>
+            <td><a href="{{e.github}}"> <i class="ai ai-github-square ai-3x"></i> </a> </td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}

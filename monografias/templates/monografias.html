@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Monografias</h1>
+
+
+<table class="table table-white table-borderless">
+
+    <thead>
+        <tr>
+
+            <th scope="col">Título</th>
+            <th scope="col">Discente</th>
+            <th scope="col">Orientador</th>
+            <th scope="col">Coorientador</th>
+            
+
+        </tr>
+    </thead>
+
+    <tbody class="table-group-divider">
+        {% for e in lista %}
+        <tr>
+            <td>{{e.titulo}}</td>
+            <td>{{e.discente}}</td>
+            <td>{{e.orientador}}</td>
+            <td>{{e.coorientador}}</td>
+           
+        </tr>
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}
