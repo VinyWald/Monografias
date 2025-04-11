@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2 class="mb-4">Lista de Equipes</h2>
+  <a href="{% url 'adicionar' %}" class="btn btn-primary mb-3">Adicionar Nova Equipe</a>
+  <ul class="list-group">
+    {% for equipe in lista %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <div>
+        <strong>{{ equipe.nome }}</strong> - {{ equipe.cargo }}
+        {% if equipe.pdf %}
+        - <a href="{{ equipe.pdf.url }}" class="btn btn-sm btn-outline-secondary">Ver PDF</a>
+        {% endif %}
+      </div>
+      <div>
+        <a href="{% url 'equipe_update' equipe.pk %}" class="btn btn-sm btn-warning">Editar</a>
+        <a href="{% url 'equipe_delete' equipe.pk %}" class="btn btn-sm btn-danger">Excluir</a>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

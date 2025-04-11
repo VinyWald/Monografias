@@ -1,16 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>APP Monografias/detalhes</h1>
-{% for e in monografias %}
-<ul>
-
-    <li>{{e.titulo}}</li>
-    <li>{{e.discente}}</li>
-    <li>{{e.orientador}}</li>
-    <li>{{e.coorientador}}</li>
-    <li>{{e.data}}</li>
-
-</ul>
-{% endfor %}
-
+<div class="container mt-4">
+  <h1 class="mb-4">Detalhes da Monografia</h1>
+  {% for e in monografias %}
+  <ul class="list-group mb-3">
+    <li class="list-group-item"><strong>Título:</strong> {{ e.titulo }}</li>
+    <li class="list-group-item"><strong>Discente:</strong> {{ e.discente }}</li>
+    <li class="list-group-item"><strong>Orientador:</strong> {{ e.orientador }}</li>
+    <li class="list-group-item"><strong>Coorientador:</strong> {{ e.coorientador }}</li>
+    <li class="list-group-item"><strong>Ano:</strong> {{ e.data }}</li>
+  </ul>
+  {% endfor %}
+</div>
 {% endblock %}

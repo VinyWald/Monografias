@@ -1,43 +1,72 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>EQUIPE</h1>
-
-
-<table class="table table-white table-borderless">
-
-    <thead>
-        <tr>
-
-            <th scope="col">Nome</th>
-            <th scope="col">Formação Academica</th>
-            <th scope="col">Email</th>
-            <th scope="col">Lattes</th>
-            <th scope="col">Scholar</th>
-            <th scope="col">Research gate</th>
-            <th scope="col">Linkedin</th>
-            <th scope="col">Orcid</th>
-            <th scope="col">Github</th>
-
-        </tr>
+<div class="container mt-4">
+  <h1 class="mb-4">Equipe</h1>
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>Nome</th>
+        <th>Formação Acadêmica</th>
+        <th>Email</th>
+        <th>Lattes</th>
+        <th>Scholar</th>
+        <th>ResearchGate</th>
+        <th>LinkedIn</th>
+        <th>Orcid</th>
+        <th>GitHub</th>
+        <th>PDF</th>
+      </tr>
     </thead>
+    <tbody>
+      {% for e in lista %}
+      <tr>
+        <td>{{ e.nome }}</td>
+        <td>{{ e.get_formacao_display }}</td>
+        <td>
+          {% if e.email %}
+          <a href="mailto:{{ e.email }}"><i class="ai ai-email-square ai-2x"></i></a>
 
-    <tbody class="table-group-divider">
-        {% for e in lista %}
-        <tr>
-            <td>{{e.nome}}</td>
-            <td>{{e.get_formacao_display}}</td>
-            <td><a href="{{e.email}}"></a> <i class="ai ai-email-square ai-3x"></i></td>
-            <td><a href="{{e.lattes}}"></a><i class="ai ai-lattes-square ai-3x"></i></td>
-            <td><a href="{{e.google_scholar}}"><i class="ai ai-google-scholar-square ai-3x"></i>  </a> </td>
-            <td><a href="{{e.research_gate}}"> <i class="ai ai-researchgate-square ai-3x"></i></a> </td>
-            <td><a href="{{e.linkedin}}"> <i class="ai ai-linkedin-square ai-3x"></i></a> </td>
-            <td><a href="{{e.orcid}}"> <i class="ai ai-orcid-square ai-3x"></i> </a> </td>
-            <td><a href="{{e.github}}"> <i class="ai ai-github-square ai-3x"></i> </a> </td>
-        </tr>
-        {% endfor %}
-
+          {% endif %}
+        </td>
+        <td>
+          {% if e.lattes %}
+            <a href="{{ e.lattes }}"><i class="ai ai-lattes-square ai-2x"></i></a>
+          {% endif %}
+        </td>
+        <td>
+          {% if e.google_scholar %}
+            <a href="{{ e.google_scholar }}"><i class="ai ai-google-scholar-square ai-2x"></i></a>
+          {% endif %}
+        </td>
+        <td>
+          {% if e.research_gate %}
+            <a href="{{ e.research_gate }}"><i class="ai ai-researchgate-square ai-2x"></i></a>
+          {% endif %}
+        </td>
+        <td>
+          {% if e.linkedin %}
+            <a href="{{ e.linkedin }}"><i class="ai ai-linkedin-square ai-2x"></i></a>
+          {% endif %}
+        </td>
+        <td>
+          {% if e.orcid %}
+            <a href="{{ e.orcid }}"><i class="ai ai-orcid-square ai-2x"></i></a>
+          {% endif %}
+        </td>
+        <td>
+          {% if e.github %}
+            <a href="{{ e.github }}"><i class="ai ai-github-square ai-2x"></i></a>
+          {% endif %}
+        </td>
+        <td>
+          {% if e.pdf %}
+            <a href="{{ e.pdf.url }}"><i class="bi bi-file-pdf-fill" style="font-size: 1.5rem; color: red;"></i></a>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
     </tbody>
-
-</table>
-
+  </table>
+  <a href="{% url 'lista' %}" class="btn btn-secondary">Editar</a>
+</div>
 {% endblock %}

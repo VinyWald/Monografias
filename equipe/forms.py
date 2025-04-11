@@ -5,3 +5,4 @@ class EquipeForm(ModelForm):
     class Meta:
         model = Equipe
         fields = "__all__"
+

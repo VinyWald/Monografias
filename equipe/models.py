@@ -30,6 +30,8 @@ class Equipe(models.Model):
     orcid= models.URLField(max_length=200,null=True,blank=True)
     github= models.URLField(max_length=200,null=True,blank=True)
     
+    #Pdf
+    pdf = models.FileField(upload_to='equipes/pdfs/', null=True, blank=True)
    
     def __str__(self):
         return self.nome

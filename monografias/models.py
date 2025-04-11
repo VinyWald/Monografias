@@ -13,7 +13,7 @@ class Monografias(models.Model):
     coorientador=models.ForeignKey(Equipe,on_delete=models.CASCADE,null=True,blank=True,related_name="coorientador")
     
     data=models.DateField(null=True,blank=True)
-    
+
     
     def __str__(self):
         return self.titulo
