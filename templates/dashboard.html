@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+  <h1>Bem-vindo, {{ user.username }}!</h1>
+  <p>Tipo de usuário: {{ tipo_usuario }}</p>
+
+  <ul>
+    <li><a href="{% url 'list' %}">Listar Equipes</a></li>
+    {% if tipo_usuario == 'ADMIN' or tipo_usuario == 'PROF' %}
+      <li><a href="{% url 'adc' %}">Adicionar Equipe</a></li>
+    {% endif %}
+    <li><a href="{% url 'registro' %}">Cadastrar novo usuário</a></li>
+  </ul>
+{% endblock %}
+

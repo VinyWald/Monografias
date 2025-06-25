@@ -1,7 +1,5 @@
 from django.contrib import admin
+from .models import CustomUser, Equipe
 
-# Register your models here.
-from . models import Monografias
-
-
-admin.site.register(Monografias)
+admin.site.register(CustomUser)
+admin.site.register(Equipe)

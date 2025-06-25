@@ -1,0 +1,10 @@
+<h2>Adicionar Equipe</h2>
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ equipe_form.as_p }}
+  <button type="submit">Salvar</button>
+</form>
+
+<!-- Botão Voltar -->
+<a href="{% url 'index' %}" class="btn btn-secondary mt-3">Voltar para a Página Inicial</a>
